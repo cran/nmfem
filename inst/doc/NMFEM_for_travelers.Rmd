@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-This vignette contains a short script showing the methodology used in Simultaneous "Dimension Reduction and Clustering via the NMF-EM Algorithm" (Léna Carel and Pierre Alquier, 2017, https://arxiv.org/pdf/1709.03346.pdf).
+This vignette contains a short script showing the methodology used in Simultaneous "Dimension Reduction and Clustering via the NMF-EM Algorithm" (Léna Carel and Pierre Alquier, 2017, <arxiv:1709.03346>).
 
 ```{r, eval=FALSE}
 library(nmfem)
@@ -18,18 +18,18 @@ library(nmfem)
 # Data loading
 Part of the data used in the article are in the `nmfem` package. In this step, we separate the travelers ID from their profiles. IDs are saved, while profiles (that are numeric data) will be used to cluster the travelers through their temporal habits. For more details on the data or the methodology, please see the article.
 
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 ID <- travelers[ ,1]
 travelers <- travelers[ ,-1]
 ```
 
 # Model selection
 In order to chose the optimal parameters $H$ (number of words) and $K$ (number of clusters) we proceed to a model selection. This step is quite long (one to two hours).
-```{r, eval=FALSE}
+```{r, eval = FALSE}
 nmfem_mult_modelselection(travelers, save = TRUE)
 ```
 
-By slope heuristic method, we obtained the optimal values $K = 10$ and $H = 5$.
+By slope heuristic method, we obtained the optimal values `K = 10` and `H = 5`.
 
 # Results
 Thanks to the option `save = TRUE` in the model selection function, we don't need to run the `nmfem_mult` function and just got to load the matrices from the optimal model.

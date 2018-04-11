@@ -12,7 +12,7 @@
 
 <meta name="author" content="Léna Carel" />
 
-<meta name="date" content="2017-11-16" />
+<meta name="date" content="2018-04-11" />
 
 <title>Application of NMF-EM algorithm to travelers profiles data</title>
 
@@ -70,11 +70,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Application of NMF-EM algorithm to travelers profiles data</h1>
 <h4 class="author"><em>Léna Carel</em></h4>
-<h4 class="date"><em>2017-11-16</em></h4>
+<h4 class="date"><em>2018-04-11</em></h4>
 
 
 
-<p>This vignette contains a short script showing the methodology used in Simultaneous “Dimension Reduction and Clustering via the NMF-EM Algorithm” (Léna Carel and Pierre Alquier, 2017, <a href="https://arxiv.org/pdf/1709.03346.pdf" class="uri">https://arxiv.org/pdf/1709.03346.pdf</a>).</p>
+<p>This vignette contains a short script showing the methodology used in Simultaneous “Dimension Reduction and Clustering via the NMF-EM Algorithm” (Léna Carel and Pierre Alquier, 2017, &lt;arxiv:1709.03346&gt;).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nmfem)</code></pre></div>
 <div id="data-loading" class="section level1">
 <h1>Data loading</h1>
@@ -86,7 +86,7 @@ travelers &lt;-<span class="st"> </span>travelers[ ,<span class="op">-</span><sp
 <h1>Model selection</h1>
 <p>In order to chose the optimal parameters <span class="math inline">\(H\)</span> (number of words) and <span class="math inline">\(K\)</span> (number of clusters) we proceed to a model selection. This step is quite long (one to two hours).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nmfem_mult_modelselection</span>(travelers, <span class="dt">save =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p>By slope heuristic method, we obtained the optimal values <span class="math inline">\(K = 10\)</span> and <span class="math inline">\(H = 5\)</span>.</p>
+<p>By slope heuristic method, we obtained the optimal values <code>K = 10</code> and <code>H = 5</code>.</p>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
