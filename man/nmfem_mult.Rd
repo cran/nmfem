@@ -28,7 +28,7 @@ A list with the elements:
 \item{Lambda}{matrix of dimension \code{H x K}. Contains the expression of the \code{K} clusters in the dictionnary.}
 \item{llh}{log-likelihood of the model.}
 \item{p}{vector containing the proportions of each cluster.}
-\item{t}{matrix containing for each observation the probability to belong to each cluster.}
+\item{posterior}{matrix containing for each observation the posterior probability to belong to each cluster.}
 }
 \description{
 Proceed to an NMF-EM algorithm on mixture of multinomials dataset. In comparison to the classical EM algorithm, the number of parameters to estimate is lower. For more explanation, see pre-print of Carel and Alquier (2017) <arXiv:1709.03346>.

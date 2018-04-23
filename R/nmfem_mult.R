@@ -14,7 +14,7 @@
 #' \item{Lambda}{matrix of dimension \code{H x K}. Contains the expression of the \code{K} clusters in the dictionnary.}
 #' \item{llh}{log-likelihood of the model.}
 #' \item{p}{vector containing the proportions of each cluster.}
-#' \item{t}{matrix containing for each observation the probability to belong to each cluster.}
+#' \item{posterior}{matrix containing for each observation the posterior probability to belong to each cluster.}
 #' @examples
 #'
 #' # Example on a data sample
@@ -51,12 +51,12 @@ nmfem_mult <- function(X, H, K, path = NULL, eps_init = 1e-3, eps_M = 1e-8, eps_
   M <- ncol(X)
   n <- nrow(X)
 
-  Theta0  <- t(dplyr::sample_n(X, K))
-  Theta0  <- Theta0 / matrix(rep(apply(Theta0, 2, sum), M), nrow = M, ncol = K, byrow = TRUE)
-  X       <- as.matrix(X)
-  Lambda0 <- diag(nrow = K, ncol = K)
-  p0      <- rep(1 / K, K)
-  t0      <- matrix(data = NA, nrow = n, ncol = K)
+  Theta0     <- t(dplyr::sample_n(X, K))
+  Theta0     <- Theta0 / matrix(rep(apply(Theta0, 2, sum), M), nrow = M, ncol = K, byrow = TRUE)
+  X          <- as.matrix(X)
+  Lambda0    <- diag(nrow = K, ncol = K)
+  p0         <- rep(1 / K, K)
+  posterior0 <- matrix(data = NA, nrow = n, ncol = K)
 
   crit     <- Inf
 
@@ -78,22 +78,22 @@ nmfem_mult <- function(X, H, K, path = NULL, eps_init = 1e-3, eps_M = 1e-8, eps_
     }
 
     p0               <- initEM$lambda
-    t0               <- initEM$posterior
+    posterior0       <- initEM$posterior
     rownames(Theta0) <- colnames(X)
 
-    if(!is.null(path)) save(Theta0, Lambda0, p0, t0, file = paste(path, fichier, sep = "/"))
+    if(!is.null(path)) save(Theta0, Lambda0, p0, posterior0, file = paste(path, fichier, sep = "/"))
   }
 
   llh <- loglik_mult(X, Theta0, Lambda0, p0)
 
   if(H != K){
     #### First Maximization step ----
-    Xtt     <- t(X) %*% t0
-    Theta   <- matrix(data <- runif(M*H), nrow <- M, ncol <- H)
-    Lambda  <- matrix(data <- runif(H*K), nrow <- H, ncol <- K)
-    p       <- p0
-    t       <- t0
-    restart <- TRUE
+    Xtt       <- t(X) %*% posterior0
+    Theta     <- matrix(data <- runif(M*H), nrow <- M, ncol <- H)
+    Lambda    <- matrix(data <- runif(H*K), nrow <- H, ncol <- K)
+    p         <- p0
+    posterior <- posterior0
+    restart   <- TRUE
 
     q      <- Inf
     Expect <- Q(Xtt, Theta, Lambda)
@@ -118,16 +118,16 @@ nmfem_mult <- function(X, H, K, path = NULL, eps_init = 1e-3, eps_M = 1e-8, eps_
     while(crit > eps_llh){
       prev_llh <- llh
 
-      t      <- t_update(X, Theta, Lambda, p)
-      p      <- apply(t, 2, sum) / sum(t)
-      Xtt    <- t(X) %*% t
-      theta  <- Theta
-      lambda <- Lambda
+      posterior <- t_update(X, Theta, Lambda, p)
+      p         <- apply(posterior, 2, sum) / sum(posterior)
+      Xtt       <- t(X) %*% posterior
+      theta     <- Theta
+      lambda    <- Lambda
 
       # Expectation step
-      Expect    <- Q(Xtt, Theta, Lambda)
-      q     <- Inf
-      crit2 <- Inf
+      Expect <- Q(Xtt, Theta, Lambda)
+      q      <- Inf
+      crit2  <- Inf
 
       # Maximization step
       while(crit2 > eps_M){
@@ -155,7 +155,7 @@ nmfem_mult <- function(X, H, K, path = NULL, eps_init = 1e-3, eps_M = 1e-8, eps_
   out$Lambda <- Lambda
   out$llh <- llh
   out$p <- p
-  out$t <- t
+  out$posterior <- posterior
 
   return(out)
 }

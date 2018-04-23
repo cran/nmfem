@@ -1,7 +1,7 @@
 Package: nmfem
 Type: Package
 Title: NMF-EM Algorithm
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: person("Lena", "Carel", email = "lena.carel@gmail.com", role = c("aut", "cre"))
 Depends: R(>= 2.10.0)
 Description: Provides a version of the Expectation-Maximization algorithm for
@@ -16,8 +16,8 @@ RoxygenNote: 6.0.1
 Suggests: knitr, testthat, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2018-04-11 09:39:01 UTC; lena.carel
+Packaged: 2018-04-23 13:03:44 UTC; lena.carel
 Author: Lena Carel [aut, cre]
 Maintainer: Lena Carel <lena.carel@gmail.com>
 Repository: CRAN
-Date/Publication: 2018-04-11 09:54:49 UTC
+Date/Publication: 2018-04-23 13:19:00 UTC
