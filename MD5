@@ -1,8 +1,8 @@
-c8c10aa147011397346db5d116b20ba6 *DESCRIPTION
+abeb9db7a2da421f042575724b94d1d3 *DESCRIPTION
 f78eb8ed1fa87c9db437e990a1af8af0 *NAMESPACE
 8c8342eb127d316dd62f71cd7374bbb4 *R/data.R
 f64fff576d4fb0cf7a27b3c3c39c703b *R/display_profile.R
-16a2788fab42b598d1a29b5bf25acabb *R/nmfem_mult.R
+92159b8a33a20bfe502ae5726ba0e16d *R/nmfem_mult.R
 55db7947bfaa55933379649b29de80fa *R/nmfem_mult_modelselection.R
 10ce39d63f080f13ed2571f5ebbe72ea *R/utility_functions.R
 fca938f56d49af551c601ab52f043eab *build/vignette.rds
@@ -11,7 +11,7 @@ fca938f56d49af551c601ab52f043eab *build/vignette.rds
 04c34e4d58ca53a4a80b49dd15a57625 *inst/CITATION
 d1551687477f546c7922b43c75df27d4 *inst/doc/NMFEM_for_travelers.R
 8db7fe877fab6fbf6fe9630c8f3ad568 *inst/doc/NMFEM_for_travelers.Rmd
-7445ec3fe64d784c1ed6c304530ddbca *inst/doc/NMFEM_for_travelers.html
+0c44096421aceec465549bdb62744506 *inst/doc/NMFEM_for_travelers.html
 15f67cfb4fb7bc7b3423a612c00bcf18 *man/Q.Rd
 363aa0e1e537a9244968dad8aabac830 *man/display_profile.Rd
 141a1fc28dd739290a91e70c0e7a721d *man/lambda_update.Rd

@@ -146,9 +146,10 @@ nmfem_mult <- function(X, H, K, path = NULL, eps_init = 1e-3, eps_M = 1e-8, eps_
       crit   <- abs((llh - prev_llh) / llh)
     }
   } else {
-    Theta  <- Theta0
-    Lambda <- Lambda0
-    p <- p0
+    Theta     <- Theta0
+    Lambda    <- Lambda0
+    p         <- p0
+    posterior <- posterior0
   }
   out <- list()
   out$Theta <- Theta
