@@ -31,20 +31,20 @@ display_profile <- function(profile, numclient = FALSE, color = "Blues", languag
 
   profile <- as.data.frame(profile)
   profile <- tidyr::gather(
-      data = profile,
-      key = temps,
-      value = n
-    )
+    data = profile,
+    key = temps,
+    value = n
+  )
 
   profile$jour  <- substr(profile$temps, 1, nchar(profile$temps) - 2)
   profile$heure <- substr(profile$temps, nchar(profile$temps) - 1, nchar(profile$temps))
 
   profile <- profile[ ,-1]
   profile <- tidyr::spread(
-      data  = profile,
-      key   = heure,
-      value = n
-    )
+    data  = profile,
+    key   = heure,
+    value = n
+  )
 
   if(toupper(language) == "FR"){
     profile$numjour = plyr::mapvalues(profile$jour, from = c("lundi", "mardi", "mercredi",
