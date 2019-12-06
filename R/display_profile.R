@@ -5,7 +5,7 @@
 #'
 #' @param profile a vector or a matrix row containing the profile to display. The day/hour data are contained in the column names.
 #' @param numclient logical. Whether the first value of the row is an identifier.
-#' @param color color of the display. Possibilities are the ones provided by \url{colorbrewer2.org}.
+#' @param color color of the display. Possibilities are the ones provided by \url{http://colorbrewer2.org}.
 #' @param language in which language the day/hour names are written. For now, the possibilities are "en" for english and "fr" for french.
 #' @param theme A theme to use. The only valid values are "" and "dark".
 #' @return Creates a 3D-heatmap displayed in the Viewer tab.

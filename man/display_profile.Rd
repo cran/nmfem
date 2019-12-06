@@ -4,15 +4,20 @@
 \alias{display_profile}
 \title{Display 3D profiles}
 \usage{
-display_profile(profile, numclient = FALSE, color = "Blues",
-  language = "en", theme = "dark")
+display_profile(
+  profile,
+  numclient = FALSE,
+  color = "Blues",
+  language = "en",
+  theme = "dark"
+)
 }
 \arguments{
 \item{profile}{a vector or a matrix row containing the profile to display. The day/hour data are contained in the column names.}
 
 \item{numclient}{logical. Whether the first value of the row is an identifier.}
 
-\item{color}{color of the display. Possibilities are the ones provided by \url{colorbrewer2.org}.}
+\item{color}{color of the display. Possibilities are the ones provided by \url{http://colorbrewer2.org}.}
 
 \item{language}{in which language the day/hour names are written. For now, the possibilities are "en" for english and "fr" for french.}
 

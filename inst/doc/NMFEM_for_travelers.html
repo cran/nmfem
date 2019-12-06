@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="Léna Carel" />
 
-<meta name="date" content="2019-04-02" />
+<meta name="date" content="2019-12-06" />
 
 <title>Application of NMF-EM algorithm to travelers profiles data</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -95,7 +95,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Application of NMF-EM algorithm to travelers profiles data</h1>
 <h4 class="author">Léna Carel</h4>
-<h4 class="date">2019-04-02</h4>
+<h4 class="date">2019-12-06</h4>
 
 
 
@@ -141,6 +141,9 @@ H =<span class="st"> </span><span class="dv">5</span>
 <span class="kw">display_profile</span>(<span class="kw">t</span>(Theta[ ,<span class="dv">5</span>]), <span class="dt">color =</span> <span class="st">&quot;Greens&quot;</span>, <span class="dt">language =</span> <span class="st">&quot;en&quot;</span>)</code></pre></div>
 </div>
 
+
+
+<!-- code folding -->
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
